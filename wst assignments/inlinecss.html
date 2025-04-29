@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Internal & External CSS Demo</title>
+    <!-- Linking External CSS -->
+    <link rel="stylesheet" href="styles.css">
+    <!-- Internal CSS -->
+    <style>
+        h1 {
+            color: darkblue;
+            text-align: center;
+        }
+        .internal-style {
+            background-color: lightgray;
+            padding: 10px;
+            text-align: center;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Internal & External CSS Example</h1>
+    <div class="internal-style">
+        This is styled using **Internal CSS**.
+    </div>
+    <p class="external-style">
+        This paragraph is styled using **External CSS**.
+    </p>
+</body>
+</html>
+Styles.css:
+.external-style {
+    background-color: lightblue;
+    color: darkred;
+    padding: 15px;
+    text-align: center;
+    font-size: 18px;
+}

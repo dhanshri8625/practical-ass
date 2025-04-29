@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+        }
+        input {
+            margin: 10px;
+            padding: 5px;
+            width: 150px;
+        }
+        button {
+            margin: 5px;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+        #result {
+            margin-top: 20px;
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+        input {
+            display: list-item;
+            border-radius: 10px;
+            width: 250px;
+        }
+        .main {
+            background-color: aqua;
+            padding: 20px;
+            border-radius: 10px;
+            height: 250px;
+            width: 300px;
+            margin-top: 10vh;
+            margin-left: 40vw;
+        }
+
+        #operation {
+            width: 265px;
+            padding: 5px;
+            border-radius: 10px;
+            margin-right: 20px;
+        }
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            border-radius: 10px;
+            background-color: blue;
+            color: white;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <h1>Calculator</h1>
+    <div class="input">
+        <input type="number" id="num1" placeholder="Enter first number">
+        
+    </div>
+    <div class="input">
+        <input type="number" id="num2" placeholder="Enter second number">
+    </div>
+    <div class="operation">
+        <select id="operation">
+            <option value="+">Add</option>
+            <option value="-">Subtract</option>
+            <option value="*">Multiply</option>
+            <option value="/">Divide</option>
+        </select>
+        
+    </div>
+    <div class="button">
+        <button onclick="performOperation()">Calculate</button>
+    </div>
+    <div id="result"></div>
+    </div>
+    <script>
+        function performOperation() {
+            const num1 = parseFloat(document.getElementById('num1').value);
+            const num2 = parseFloat(document.getElementById('num2').value);
+            const operator = document.getElementById('operation').value;
+            let result;
+
+            if (isNaN(num1) || isNaN(num2)) {
+                result = "Please enter valid numbers.";
+            } else {
+                switch (operator) {
+                    case '+':
+                        result = num1 + num2;
+                        break;
+                    case '-':
+                        result = num1 - num2;
+                        break;
+                    case '*':
+                        result = num1 * num2;
+                        break;
+                    case '/':
+                        result = num2 !== 0 ? num1 / num2 : "Cannot divide by zero.";
+                        break;
+                    default:
+                        result = "Invalid operation.";
+                }
+            }
+            document.getElementById('result').innerText = `Result: ${result}`;
+        }
+    </script>
+</body>
+</html>

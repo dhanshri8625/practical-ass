@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>String Functions Demo</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background: #f0f8ff;
+    }
+    .container {
+      max-width: 600px;
+      margin: auto;
+      background: white;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    h2 {
+      text-align: center;
+      color: #333;
+    }
+    button {
+      padding: 10px 20px;
+      background-color: #4CAF50;
+      color: white;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      display: block;
+      margin: 20px auto;
+    }
+    button:hover {
+      background-color: #45a049;
+    }
+    .output {
+      margin-top: 20px;
+      background: #f9f9f9;
+      padding: 15px;
+      border-radius: 5px;
+      line-height: 1.6;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Demonstration of String Functions using JavaScript</h2>
+    <button onclick="showStringFunctions()">Show String Functions</button>
+    <div class="output" id="result"></div>
+  </div>
+  <script>
+    function showStringFunctions() {
+      let str = "  Hello JavaScript!  ";
+      let output = "";
+      output += "Original String: '" + str + "'<br>";
+      output += "Length: " + str.length + "<br>";
+      output += "Uppercase: " + str.toUpperCase() + "<br>";
+      output += "Lowercase: " + str.toLowerCase() + "<br>";
+      output += "Trimmed: '" + str.trim() + "'<br>";
+      output += "Substring (0, 5): " + str.substring(0, 5) + "<br>";
+      output += "Char at 6: " + str.charAt(6) + "<br>";
+      output += "Index of 'Java': " + str.indexOf("Java") + "<br>";
+      output += "Replace 'JavaScript' with 'World': " + str.replace("JavaScript", "World") + "<br>";
+      output += "Split by space: " + str.trim().split(" ") + "<br>";
+      output += "Includes 'Script': " + str.includes("Script") + "<br>";
+      document.getElementById("result").innerHTML = output;
+    }
+  </script>
+</body>
+</html>
+

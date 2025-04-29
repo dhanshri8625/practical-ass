@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Number Checker</title>
+</head>
+<body>
+  <h2>Enter a number</h2>
+  <input type="number" id="numberInput" placeholder="Enter a number">
+  <button onclick="checkNumber()">Check</button>
+
+  <p id="result"></p>
+
+  <script>
+    function checkNumber() {
+      const num = document.getElementById("numberInput").value;
+      const result = document.getElementById("result");
+
+      if (num === "") {
+        result.textContent = "Please enter a number.";
+        return;
+      }
+
+      const number = parseInt(num);
+      const isPalindrome = checkPalindrome(number);
+      const isArmstrong = checkArmstrong(number);
+
+      let message = `Number: ${number}\n`;
+      message += isPalindrome ? "✓ It is a Palindrome.\n" : "✗ It is not a Palindrome.\n";
+      message += isArmstrong ? "✓ It is an Armstrong number." : "✗ It is not an Armstrong number.";
+
+      result.textContent = message;
+    }
+
+    function checkPalindrome(num) {
+      const original = num.toString();
+      const reversed = original.split("").reverse().join("");
+      return original === reversed;
+    }
+
+    function checkArmstrong(num) {
+      const digits = num.toString().split("");
+      const power = digits.length;
+      const sum = digits.reduce((acc, digit) => acc + Math.pow(parseInt(digit), power), 0);
+      return sum === num;
+    }
+  </script>
+</body>
+</html>

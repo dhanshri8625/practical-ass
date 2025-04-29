@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Math Functions Demo</title>
+</head>
+<body>
+  <h1>JavaScript Math Functions</h1>
+  <pre id="output"></pre>
+
+  <script>
+    const output = document.getElementById("output");
+
+    function log(message) {
+      output.textContent += message + "\n";
+    }
+
+    // Demonstrating Math functions
+    const num = -4.7;
+    const angle = Math.PI / 4; // 45 degrees
+
+    log("Number: " + num);
+    log("Absolute: " + Math.abs(num));
+    log("Ceil: " + Math.ceil(num));
+    log("Floor: " + Math.floor(num));
+    log("Round: " + Math.round(num));
+    log("Trunc: " + Math.trunc(num));
+    log("Square root of 25: " + Math.sqrt(25));
+    log("2 raised to 3: " + Math.pow(2, 3));
+    log("Max of (3, 7, 2, 9): " + Math.max(3, 7, 2, 9));
+    log("Min of (3, 7, 2, 9): " + Math.min(3, 7, 2, 9));
+    log("Random number (0-1): " + Math.random());
+    log("Sin(45°): " + Math.sin(angle));
+    log("Cos(45°): " + Math.cos(angle));
+    log("Tan(45°): " + Math.tan(angle));
+    log("Log(10): " + Math.log(10));
+    log("Exponential of 1: " + Math.exp(1));
+  </script>
+</body>
+</html>

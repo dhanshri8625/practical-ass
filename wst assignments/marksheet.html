@@ -1,0 +1,129 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marks, Grade, and Result Calculation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+        label {
+            margin: 10px 0;
+            font-weight: bold;
+            display: block;
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .result {
+            margin-top: 20px;
+            font-size: 18px;
+            text-align: center;
+        }
+        .result input {
+            font-weight: bold;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Marks, Grade, and Result Calculation</h2>
+        <label for="marks1">Subject 1 Marks:</label>
+        <input type="number" id="marks1" placeholder="Enter marks for Subject 1" required>
+        <label for="marks2">Subject 2 Marks:</label>
+        <input type="number" id="marks2" placeholder="Enter marks for Subject 2" required>
+        <label for="marks3">Subject 3 Marks:</label>
+        <input type="number" id="marks3" placeholder="Enter marks for Subject 3" required>
+        <label for="marks4">Subject 4 Marks:</label>
+        <input type="number" id="marks4" placeholder="Enter marks for Subject 4" required>
+        <label for="marks5">Subject 5 Marks:</label>
+        <input type="number" id="marks5" placeholder="Enter marks for Subject 5" required>
+        <button onclick="calculateResult()">Calculate Result</button>
+        <div class="result">
+            <label for="totalMarks">Total Marks:</label>
+            <input type="text" id="totalMarks" readonly>
+            <label for="percentage">Percentage:</label>
+            <input type="text" id="percentage" readonly>
+            <label for="grade">Grade:</label>
+            <input type="text" id="grade" readonly>
+            <label for="result">Result:</label>
+            <input type="text" id="result" readonly>
+        </div>
+    </div>
+    <script>
+        function calculateResult() {
+            // Get the marks from the input fields
+            var marks1 = parseFloat(document.getElementById("marks1").value);
+            var marks2 = parseFloat(document.getElementById("marks2").value);
+            var marks3 = parseFloat(document.getElementById("marks3").value);
+            var marks4 = parseFloat(document.getElementById("marks4").value);
+            var marks5 = parseFloat(document.getElementById("marks5").value);
+            // Validate input to ensure marks are entered
+            if (isNaN(marks1) || isNaN(marks2) || isNaN(marks3) || isNaN(marks4) || isNaN(marks5)) {
+                alert("Please enter valid marks for all subjects.");
+                return;
+            }
+            // Calculate total marks and percentage
+            var totalMarks = marks1 + marks2 + marks3 + marks4 + marks5;
+            var percentage = (totalMarks / 500) * 100;
+            // Determine grade based on percentage
+            var grade = "";
+            if (percentage >= 90) {
+                grade = "A+";
+            } else if (percentage >= 80) {
+                grade = "A";
+            } else if (percentage >= 70) {
+                grade = "B+";
+            } else if (percentage >= 60) {
+                grade = "B";
+            } else if (percentage >= 50) {
+                grade = "C";
+            } else if (percentage >= 40) {
+                grade = "D";
+            } else {
+                grade = "F";
+            }
+            // Determine result (Passed or Failed)
+            var result = percentage >= 40 ? "Passed" : "Failed";
+            // Display the results in textboxes
+            document.getElementById("totalMarks").value = totalMarks;
+            document.getElementById("percentage").value = percentage.toFixed(2) + "%";
+            document.getElementById("grade").value = grade;
+            document.getElementById("result").value = result;
+        }
+    </script>
+</body>
+</html>
